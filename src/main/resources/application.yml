@@ -1,0 +1,209 @@
+# ********************************************
+#                     YAMO
+# ********************************************
+
+# Active profile
+spring.profiles.active: local
+
+# yamo properties
+yamo:
+  admin.user:
+    email: admin@yamo.com
+    password: testing
+  oauth.user:
+    username: a4PqNmXHP482ZK89
+    password: LXUYc4zd2AaBVbEr
+  noauth.user:
+    username: v4p2Qj7EYswDuTSk
+    password: ts4aD4uhAJxz5zUX
+spring.freemarker.checkTemplateLocation: false
+
+# curl -X POST -vu a4PqNmXHP482ZK89:LXUYc4zd2AaBVbEr http://127.0.0.1:8080/oauth/token -H "Accept: application/json" -d "password=testing&username=admin@yamo.com&grant_type=password&scope=read%20write&client_secret=LXUYc4zd2AaBVbEr&client_id=a4PqNmXHP482ZK89"
+
+# Database parameters
+spring.datasource:
+  driverClassName: com.mysql.jdbc.Driver
+  validationQuery: SELECT 1
+  max-wait: 5000
+  max-active: 500
+#  max-idle: 5
+  test-on-borrow: true
+spring.jpa:
+  show-sql: false
+  hibernate:
+    ddl-auto: update
+    dialect: org.hibernate.dialect.MySQL5Dialect
+
+# Facebook credentials
+facebook:
+  clientId: 770299866440328
+  clientSecret: b42cb69faf4f127348c2c283b7fd276e
+
+
+# AWS credentials
+aws:
+  key: AKIAIA5W4DUT3AI2Z27Q
+  secret: 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
+  sns.endpoint: http://sns.eu-west-1.amazonaws.com
+  s3.endpoint: https://s3.amazonaws.com
+  s3.bucket: locassa-temp-resources
+
+# Email parameters
+mail:
+  host: email-smtp.eu-west-1.amazonaws.com
+  username: AKIAIZ6OUKWVZNUZLURQ
+  password: AmrhQopDiQqtLvOz0xRqIqM1JnwP1TskgOoqQbC6aLv5
+  port: 465
+  protocol: smtps
+  auth: true
+  ssl: true
+  from: noreply@yamoapp.co.uk
+
+---
+
+# ********************************************
+#                LOCAL PROFILE
+# ********************************************
+
+# Spring profile
+spring.profiles: local
+
+# Logging
+logging.level.com.locassa.yamo: DEBUG
+logging.level.org.springframework: INFO
+
+# Database parameters
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yamo?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: root
+    password: 
+
+# AWS credentials
+aws:
+ key: AKIAIW6ROEZIEBQNZPDA
+ secret: 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
+ s3.endpoint: https://s3.amazonaws.com
+ s3.bucket: yamo-resources
+
+spring.jpa:
+  show-sql: true
+
+server.port: 9000
+
+# Json documentation
+jsondoc.basePath: http://127.0.0.1:9000
+
+
+---
+
+# ********************************************
+#                LOCASSA PROFILE
+# ********************************************
+
+# Spring profile
+spring.profiles: locassa
+
+# Logging
+logging.level.com.locassa.yamo: DEBUG
+logging.level.org.springframework: INFO
+
+spring.jpa:
+  show-sql: true
+
+# Database parameters
+spring:
+  datasource:
+    url: jdbc:mysql://yamo.ccztfr6xzgkx.eu-west-1.rds.amazonaws.com:3306/yamo?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: aPbZEtc9Dur64pQF
+    password: s7XMVaC5B3Xd8ZNx
+
+---
+
+# ********************************************
+#               INTERNAL PROFILE
+# ********************************************
+
+# Spring profile
+spring.profiles: internal
+
+# Logging
+logging.level.com.locassa.yamo: DEBUG
+logging.level.org.springframework: INFO
+
+spring.jpa:
+  show-sql: true
+
+# Database parameters
+spring:
+  datasource:
+    url: jdbc:mysql://yamo-internal-db.cq3z9kodztj7.eu-west-1.rds.amazonaws.com:3306/yamo?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: emHP3b22q6pyQLKU
+    password: vpdxr6d6R2N2Tv9V
+
+# AWS credentials
+aws:
+ key: AKIAIW6ROEZIEBQNZPDA
+ secret: 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
+ s3.endpoint: https://s3.amazonaws.com
+ s3.bucket: yamo-resources
+
+---
+
+# ********************************************
+#               CLIENT PROFILE
+# ********************************************
+
+# Spring profile
+spring.profiles: client
+
+# Logging
+logging.level.com.locassa.yamo: ERROR
+logging.level.org.springframework: ERROR
+
+spring.jpa:
+  show-sql: false
+
+# Database parameters
+spring:
+  datasource:
+    url: jdbc:mysql://yamo-client-db.cq3z9kodztj7.eu-west-1.rds.amazonaws.com:3306/yamo?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: qgAUTZk6G5u6496X
+    password: pw3kqZzkw8jxPWRF
+
+# AWS credentials
+aws:
+ key: AKIAIW6ROEZIEBQNZPDA
+ secret: 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
+ s3.endpoint: https://s3.amazonaws.com
+ s3.bucket: yamo-resources
+
+---
+
+# ********************************************
+#                LIVE PROFILE
+# ********************************************
+
+# Spring profile
+spring.profiles: live
+
+# Logging
+logging.level.com.locassa.yamo: ERROR
+logging.level.org.springframework: ERROR
+
+spring.jpa:
+  show-sql: false
+
+# Database parameters
+spring:
+  datasource:
+    url: jdbc:mysql://yamo-live-db.cq3z9kodztj7.eu-west-1.rds.amazonaws.com:3306/yamo?useUnicode=yes&amp;characterEncoding=UTF-8
+    username: pH5BB7pNXwaschsu
+    password: sntaPRH52fBN7AQ7
+
+# AWS credentials
+aws:
+ key: AKIAIW6ROEZIEBQNZPDA
+ secret: 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
+ s3.endpoint: https://s3.amazonaws.com
+ s3.bucket: yamo-resources
